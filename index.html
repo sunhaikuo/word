@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>单词查看器</title>
+    <link rel="stylesheet" href="./lib/style.css">
+    <link rel="stylesheet" href="./lib/bootstrap/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="wrap">
+        <h3 class="bg-info">单词记录软件</h3>
+        <form class="form-inline ">
+            <div class="form-group has-error ">
+                <label for="exampleInputName2 ">单词拼写：</label>
+                <input type="text " class="form-control " placeholder="如：Hello ">
+            </div>
+            <div class="form-group ">
+                <label for="exampleInputEmail2 ">单词示意：</label>
+                <input type="email " class="form-control " placeholder="如：你好 ">
+            </div>
+            <button type="submit " class="btn btn-default ">添加到词库中</button>
+            <button type="submit " class="btn btn-info">随机取20个单词</button>
+        </form>
+        <table class="table table-striped ">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>单词拼写</th>
+                    <th>单词示意</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row ">1</th>
+                    <td>Hello</td>
+                    <td>你好</td>
+                    <td>
+                        <button type="button " class="btn btn-primary btn-xs ">显示</button>
+                        <button type=" button " class="btn btn-danger btn-xs ">删除</button>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row ">1</th>
+                    <td>Hello</td>
+                    <td>你好</td>
+                    <td>
+                        <button type="button " class="btn btn-primary btn-xs ">显示</button>
+                        <button type=" button " class="btn btn-danger btn-xs ">删除</button>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row ">1</th>
+                    <td>Hello</td>
+                    <td>你好</td>
+                    <td>
+                        <button type="button " class="btn btn-primary btn-xs ">显示</button>
+                        <button type=" button " class="btn btn-danger btn-xs ">删除</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <script src="./lib/jquery.min.js "></script>
+    <script src="./lib/bootstrap/js/bootstrap.min.js "></script>
+</body>
+
+</html>

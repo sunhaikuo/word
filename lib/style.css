@@ -1,0 +1,28 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+.wrap {
+    width: 1000px;
+    height: 800px;
+    border: 1px solid green;
+    margin: 0 auto;
+    border-radius: 10px;
+}
+
+.bg-info {
+    padding: 15px;
+    text-align: center;
+}
+
+.form-inline {
+    padding: 5px 15px;
+}
