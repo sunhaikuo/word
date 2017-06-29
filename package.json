@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "axios": "^0.16.2",
+    "express": "^4.15.3",
+    "fs-extra": "^3.0.1"
+  }
+}
