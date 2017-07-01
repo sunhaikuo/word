@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Word</title>
+</head>
+
+<body>
+    <div class="wrap" id="app">
+        <ul>
+            <li>key:<input type="text" name="key" v-model="key"></li>
+            <li>val:<input type="text" name="value" v-model="value" /></li>
+            <li>
+                <input type="button" value="提交" @click="submit">
+                <input type="button" value="获取" @click="random">
+            </li>
+        </ul>
+        <ul>
+            <li v-for="(item, index) in randomArr">{{item.value}}<span @click="delete1(item.id, index)">X</span></li>
+        </ul>
+    </div>
+    <script src="./vue.js"></script>
+    <script src="./axios.min.js"></script>
+    <script src="./script.js"></script>
+</body>
+
+</html>

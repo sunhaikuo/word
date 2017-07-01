@@ -1,0 +1,34 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+.wrap {
+    width: 1000px;
+    height: 800px;
+    border: 1px solid green;
+    margin: 0 auto;
+    border-radius: 10px;
+    overflow: auto;
+    font-family: "Avenir Next", Avenir, "Helvetica Neue", Helvetica, "Lantinghei SC", "Hiragino Sans GB", "Microsoft YaHei", 微软雅黑, STHeiti, "WenQuanYi Micro Hei", SimSun, sans-serif;
+}
+
+.title {
+    padding: 15px;
+    text-align: center;
+    background-color: #efefef;
+    color: #333;
+    font-size: 30px;
+    margin: 10px 0;
+}
+
+.form-inline {
+    padding: 5px 15px;
+}

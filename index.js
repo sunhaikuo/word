@@ -19,6 +19,13 @@ app.get('/delete', function (req, res) {
     var result = fs.writeJsonSync(filePath, json)
     res.send('Success')
 })
+app.get('/length', function (req, res) {
+    var json = fs.readJSONSync(path.resolve('./static/database.json'))
+    var length = json.length
+    res.send({
+        length: length
+    })
+})
 app.get('/random', function (req, res) {
     var json = fs.readJSONSync(path.resolve('./static/database.json'))
     var length = json.length
@@ -26,7 +33,7 @@ app.get('/random', function (req, res) {
     data.sort(function () {
         return 0.5 - Math.random()
     })
-    var result = data.slice(0, 20)
+    var result = data.slice(0, 15)
     res.send(result)
 })
 app.get('/add', function (req, res) {
@@ -35,19 +42,26 @@ app.get('/add', function (req, res) {
     var obj = {
         id: (+(new Date())),
         key: key,
-        value: value + (+(new Date()))
+        value: value
     }
-    var filePath = path.resolve('./static/database.json')
-    var json = fs.readJSONSync(filePath)
-    var data = json.data
-    data.push(obj)
-    json.data = data
-    json.length = data.length
-    var result = fs.writeJsonSync(filePath, json)
-    console.log(result)
-    res.send({
-        success: true
-    })
+    if (key && value) {
+        var filePath = path.resolve('./static/database.json')
+        var json = fs.readJSONSync(filePath)
+        var data = json.data
+        data.push(obj)
+        json.data = data
+        json.length = data.length
+        var result = fs.writeJsonSync(filePath, json)
+        res.send({
+            success: true,
+            data: obj
+        })
+    } else {
+        res.send({
+            success: false,
+            msg: '所填写的值为空'
+        })
+    }
 })
 app.listen(5000, function () {
     console.log('Listen 5000!')

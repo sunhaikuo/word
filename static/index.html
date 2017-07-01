@@ -5,23 +5,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Word</title>
+    <title>单词查看器</title>
+    <link rel="stylesheet" href="./lib/style.css">
+    <link rel="stylesheet" href="./lib/bootstrap/css/bootstrap.min.css">
 </head>
 
 <body>
     <div class="wrap" id="app">
-        <ul>
-            <li>key:<input type="text" name="key" v-model="key"></li>
-            <li>val:<input type="text" name="value" v-model="value" /></li>
-            <li>
-                <input type="button" value="提交" @click="submit">
-                <input type="button" value="获取" @click="random">
-            </li>
-        </ul>
-        <ul>
-            <li v-for="(item, index) in randomArr">{{item.value}}<span @click="delete1(item.id, index)">X</span></li>
-        </ul>
+        <div class="title">单词记录软件</div>
+        <form class="form-inline ">
+            <div class="form-group" :class="keyIsError ? 'has-error' :''">
+                <label for="exampleInputName2 ">单词拼写：</label>
+                <input type="text" autofocus="autofocus" class="form-control" v-model="key" placeholder="如：Hello ">
+            </div>
+            <div class="form-group" :class="valIsError ? 'has-error' :''">
+                <label for="exampleInputEmail2 ">单词示意：</label>
+                <input type="email" style="width:230px" class="form-control" v-model="value" placeholder="如：你好 ">
+            </div>
+            <button type="button" class="btn btn-default" @click="submit">添加到词库中</button>
+            <button type="button" class="btn btn-default" @click="random">随机取15个单词（共:{{length}}个）</button>
+        </form>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th style="width:150px">#</th>
+                    <th style="width:250px">单词拼写</th>
+                    <th style="width:450px">单词示意</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="(item, index) in randomArr">
+                    <th scope="row ">{{index+1}}</th>
+                    <td>{{item.key}}</td>
+                    <td><span :class="item.show ? 'show' : 'hide'">{{item.value}}</span></td>
+                    <td>
+                        <button type="button" @click="show(item.id, index)" class="btn btn-primary btn-xs ">显示</button>
+                        <button type="button" @click="delete1(item.id, index)" class="btn btn-danger btn-xs ">删除</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </div>
+    <script src="./lib/jquery.min.js "></script>
+    <script src="./lib/bootstrap/js/bootstrap.min.js "></script>
     <script src="./vue.js"></script>
     <script src="./axios.min.js"></script>
     <script src="./script.js"></script>
